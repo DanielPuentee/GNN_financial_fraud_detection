@@ -1,0 +1,5 @@
+*.ipynb_checkpoints/
+*__pycache__/
+*.pkl
+*cleaning_generated_data/
+*eda_generated_data/
