@@ -3,3 +3,5 @@
 *.pkl
 *cleaning_generated_data/
 *eda_generated_data/
+*mlartifacts/
+*mlruns/
