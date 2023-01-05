@@ -1,0 +1,18 @@
+artifact_path: sage_2hidden_softmax_test_prev
+flavors:
+  python_function:
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.8.15
+  pytorch:
+    code: null
+    model_data: data
+    pytorch_version: 1.12.0+cpu
+mlflow_version: 2.1.1
+model_uuid: bf59f0af9c3c49948cadf7754b8aaa2c
+run_id: a1483fda6c0b4053b4c7ed3720a560f6
+utc_time_created: '2023-01-02 20:45:52.395356'

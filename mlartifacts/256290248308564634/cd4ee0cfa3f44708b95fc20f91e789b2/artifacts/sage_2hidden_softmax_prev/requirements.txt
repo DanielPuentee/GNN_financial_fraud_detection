@@ -1,0 +1,10 @@
+mlflow<3,>=2.1
+astunparse==1.6.3
+cloudpickle==2.2.0
+ipython==8.7.0
+torch-cluster==1.6.0
+torch-geometric==2.2.0
+torch-scatter==2.1.0
+torch-sparse==0.6.16
+torch-spline-conv==1.2.1
+torch==1.12.0
