@@ -25,7 +25,7 @@ path = "../data/graph_data/"
 eda_path = "../data/eda_generated_data/"
 output_path = "../data/models/"
 
-training_graph = torch.load(path + 'training_graph.pt')
+training_graph = torch.load(path + 'training_graph_prev.pt')
 
 
 class GNN_linear(torch.nn.Module):
@@ -78,7 +78,7 @@ def train(data):
     
     return float(loss), f1, precion, recall, auc
 
-def test():
+def test(training_graph):
 
     torch.manual_seed(0)
     model.eval()
@@ -100,11 +100,11 @@ for epoch in range(1, 20+1):
 
     torch.manual_seed(0)
     loss, f1_train, precision_train, recall_train, auc_train = train(training_graph)
-    f1_val, precision_val, recall_val, auc_val = test()
+    f1_val, precision_val, recall_val, auc_val = test(training_graph)
 
     print(f'Epoch: {epoch:03d}, Loss: {loss:.4f}, F1 Train: {f1_train:.3f}, F1 Val: {f1_val:.3f}, Precision Train: {precision_train:.3f}, Precision Val: {precision_val:.3f}, Recall Train: {recall_train:.3f}, Recall Val: {recall_val:.3f}, AUC Train: {auc_train:.3f}, AUC Val: {auc_val:.3f}')
     stats = stats.append({'epoch': epoch, 'loss': loss, 'f1_train': f1_train, 'precision_train': precision_train, 'recall_train': recall_train, 'auc_train': auc_train, 'f1_val': f1_val, 'precision_val': precision_val, 'recall_val': recall_val, 'auc_val': auc_val}, ignore_index=True)
 
 print('¡¡¡Training finished!!!')
-torch.save(model, output_path + 'sage_heterogen_model.pt')
-save_pickle_file('sage_heterogen_model_stats.pkl', stats)
+torch.save(model, output_path + 'sage_heterogen_model_prev.pt')
+save_pickle_file('sage_heterogen_model_stats_prev.pkl', stats)
